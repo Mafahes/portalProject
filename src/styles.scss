@@ -2,3 +2,15 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: GolosRegular;
+  src: url(assets/Golos-Text_Regular.ttf) format("opentype");
+}
+@font-face {
+  font-family: GolosMedium;
+  src: url(assets/Golos-Text_Medium.ttf) format("opentype");
+}
+@font-face {
+  font-family: GolosBold;
+  src: url(assets/Golos-Text_Bold.ttf) format("opentype");
+}
