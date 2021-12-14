@@ -1,0 +1,87 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+.ng-select .ng-select-container {
+  border: 1px solid #acacb0 !important;
+}
+.ng-select-container {
+  height: 50px !important;
+}
+.ng-input {
+  top: 30% !important;
+}
+ng-select {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+.gov-button {
+  width: fit-content;
+  padding: 10px 17px;
+  background-color: #0061d9;
+  font-family: GolosRegular, sans-serif;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  transition: ease 0.2s;
+}
+.gov-button:hover {
+  background-color: #004eae;
+  transition: ease 0.2s;
+}
+.gov-button:focus {
+  background-color: #004498;
+}
+.gov-button:disabled {
+  background-color: #a7a7ab;
+  border: 0;
+}
+.gov-button_light {
+  min-height: 50px;
+  padding: 10px 17px;
+  background-color: white;
+  font-family: GolosRegular, sans-serif;
+  border: 1px solid #b3cbe8;
+  border-radius: 3px;
+  color: #0050b2;
+  font-size: 16px;
+  transition: ease 0.2s;
+}
+.gov-button_light:hover {
+  transition: ease 0.2s;
+  background-color: #f2f6fb;
+  border: 1px solid #0050b2;
+}
+.gov-button_light:focus{
+  background-color: #e6eef7;
+  color: #00408e;
+  border: 1px solid #b3cbe8;
+  outline: 3px solid #99c0f0 !important;
+}
+.gov-button_light:disabled {
+  border: 1px solid #a7a7ab;
+  background-color: #f7f7f7;
+  color: #a7a7ab;
+}
+.gov-input {
+  margin-bottom: 12px;
+  margin-top: 8px;
+  transition: ease 0.2s;
+  padding: 14px;
+  border: 1px solid #acacb0;
+  border-radius: 3px;
+  background-color: white;
+  color: #3f3f3f;
+  font-family: GolosRegular, sans-serif;
+}
+.gov-input:hover {
+  border: 1px solid #404040;
+}
+.gov-input:focus {
+  transition: ease 0.2s;
+  outline: 3px solid #99c0f0 !important;
+  border: 1px solid #3a3b41;
+}
+.gov-input:disabled {
+  color: transparent;
+  border: 0;
+  background-color: #f5f5f7;
+}

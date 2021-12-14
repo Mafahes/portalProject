@@ -1,0 +1,31 @@
+.container {
+  height: 80%;
+}
+.user__wrapper {
+  background-color: white;
+  padding: 60px 105px;
+  margin-top: 47px;
+  border-radius: 20px;
+  span {
+    &:nth-child(1) {
+      font-size: 18px;
+      color: #202022;
+      font-family: GolosRegular, sans-serif;
+      line-height: 1em;
+      margin-bottom: 24px;
+    }
+    font-family: GolosRegular, sans-serif;
+    font-size: 18px;
+    color: #a7a7ab;
+  }
+}
+.form__profile {
+  span {
+    font-family: GolosRegular, sans-serif !important;
+    font-size: 18px !important;
+    color: #a7a7ab !important;
+  }
+  input {
+    margin-bottom: 18px !important;
+  }
+}

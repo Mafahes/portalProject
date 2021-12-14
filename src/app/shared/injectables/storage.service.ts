@@ -11,7 +11,7 @@ export class StorageService {
 
   }
 
-  private userSubject: BehaviorSubject<string> = new BehaviorSubject('init');
+  private userSubject: BehaviorSubject<any> = new BehaviorSubject(123);
   user$: Observable<string> = this.userSubject.asObservable();
 
   setData(type: string, newValue: string) {

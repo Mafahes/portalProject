@@ -1,13 +1,14 @@
 <div class="container">
-  <div class="row d-flex justify-content-center align-items-center">
-    <span class="text-label">
-      Портал участника системы ОМС Территориального фонда обязательного медицинского страхования Республики Дагестан
-    </span>
-  </div>
   <div class="row">
     <div class="col-12 auth-form__wrapper d-flex flex-column justify-content-center align-items-center">
       <span>АВТОРИЗАЦИЯ</span>
-      <span>Пожалуйста, авторизуйтесь для получения доступа.</span>
+      <form [formGroup]="authForm" class="d-flex flex-column align-items-center">
+        <span class="w-100">Логин</span>
+        <input type="text" formControlName="login" class="gov-input w-100"/>
+        <span class="w-100">Пароль</span>
+        <input type="password" formControlName="password" class="gov-input w-100"/>
+        <button class="gov-button" [disabled]="!authForm.valid">Войти</button>
+      </form>
     </div>
   </div>
   <div class="row"></div>

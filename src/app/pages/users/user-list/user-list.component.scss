@@ -10,26 +10,19 @@
     height: 15%;
   }
 }
-.auth-form__wrapper {
-  form {
-    width: 360px;
-    margin-top: 32px;
-    button {
-      margin-top: 30px;
-    }
-  }
+.user__wrapper {
   background-color: white;
-  padding: 60px 0;
+  padding: 60px 105px;
   margin-top: 47px;
   border-radius: 20px;
-  > span:nth-child(1) {
-    font-weight: 700;
-    font-size: 42px;
-    color: #202022;
-    font-family: GolosBold, sans-serif;
-    line-height: 1em;
-  }
   span {
+    &:nth-child(1) {
+      font-size: 18px;
+      color: #202022;
+      font-family: GolosRegular, sans-serif;
+      line-height: 1em;
+      margin-bottom: 24px;
+    }
     font-family: GolosRegular, sans-serif;
     font-size: 18px;
     color: #a7a7ab;

@@ -1,0 +1,41 @@
+.labels__bg {
+  background-color: #FAFAFA;
+}
+.label {
+  font-size: 24px;
+  font-family: GolosBold, sans-serif;
+  color: #333333;
+  line-height: 1em;
+}
+.label__container {
+  margin: 44px 0px;
+}
+.menu__bg {
+  background-color: #1C69A0;
+}
+.menu__container {
+  margin: 18px 0;
+  .menu__exit:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .menu__controls {
+    flex: 1;
+    span:nth-child(1) {
+      font-family: GolosBold, sans-serif;
+      margin-right: 45px;
+    }
+  }
+  span:hover {
+      cursor: pointer;
+    text-decoration: underline;
+  }
+  span {
+    :hover {
+      cursor: pointer;
+    }
+    color: white;
+    font-size: 16px;
+    font-family: GolosRegular, sans-serif;
+  }
+}

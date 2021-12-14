@@ -18,8 +18,5 @@ export class AppComponent implements OnInit {
   data$: Observable<string>;
   title = 'angularProject';
   ngOnInit() {
-    this.api.authToken({a: 2}).subscribe(e => {
-      console.log(e);
-    });
   }
 }

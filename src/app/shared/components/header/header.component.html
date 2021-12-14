@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row labels__bg">
+    <div class="col-12">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10 d-flex flex-column label__container">
+            <span class="label">Портал участника системы ОМС</span>
+            <span class="label">Территориального фонда обязательного медицинского страхования</span>
+            <span class="label">Республики Дагестан</span>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row menu__bg">
+    <div class="col-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 menu__container d-flex flex-row align-items-center" style="gap: 20px">
+            <span>Главная</span>
+            <span routerLink="/reports">Отчеты</span>
+            <span>Загрузка файлов</span>
+            <div *ngIf="(storage.user$ | async) !== null" class="menu__controls d-flex flex-row justify-content-end">
+              <span routerLink="/profile">Петров И.И.</span>
+              <svg-icon src="assets/icons/cross.svg" [svgStyle]="{ 'width.px':30 }"></svg-icon>
+              <span class="menu__exit">Выход</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
