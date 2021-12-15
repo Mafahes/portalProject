@@ -15,6 +15,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserAddComponent } from './pages/users/user-add/user-add.component';
 import {NgSelectModule} from "@ng-select/ng-select";
+import { MainPageComponent } from './pages/main/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {NgSelectModule} from "@ng-select/ng-select";
     ReportsComponent,
     UserListComponent,
     UserAddComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,

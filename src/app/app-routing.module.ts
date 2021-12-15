@@ -5,8 +5,10 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {ReportsComponent} from "./pages/reports/reports.component";
 import {UserListComponent} from "./pages/users/user-list/user-list.component";
 import {UserAddComponent} from "./pages/users/user-add/user-add.component";
+import {MainPageComponent} from "./pages/main/main-page/main-page.component";
 
 const routes: Routes = [
+  { path: '', component: MainPageComponent },
   { path: 'auth', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'reports', component: ReportsComponent },

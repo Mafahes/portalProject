@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public storage: StorageService
   ) { }
-
+  self = false;
   ngOnInit(): void {
   }
 
