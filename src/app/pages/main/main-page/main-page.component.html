@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row oms">
+  <div class="row oms" *ngIf="isOms">
     <div class="col-12">
       <div class="white-container d-flex flex-column">
         <div class="container pt-none">
@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="!isOms">
     <div class="col-12">
       <div class="white-container d-flex flex-column">
         <span>Счет 11.2021</span>
@@ -139,12 +139,66 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-xl-8">
+            <div class="col-12 file_label">
+              <span>
+                Количество файлов в очереди обработки:
+              </span>
+            </div>
+            <div class="col-6 file left">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_12.svg" [svgStyle]="{ 'width.px':41, 'heigth.px':52 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Окончательные:</span>
+                  <span class="card__title">2</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 file right">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_13.svg" [svgStyle]="{ 'width.px':41, 'heigth.px':52 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Предварительные:</span>
+                  <span class="card__title">1</span>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!isOms" class="col-12 col-xl-8">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_6.svg" [svgStyle]="{ 'width.px':46, 'heigth.px':40 }"></svg-icon>
                 <div class="d-flex flex-column">
                   <span class="card__subtitle">Информация о прикрепленном населении:</span>
                   <span class="card__title">1 000 человек.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="isOms">
+    <div class="col-12">
+      <div class="white-container d-flex flex-column">
+        <span>Информация о статусе загрузки МУВР и санкций от СМО</span>
+        <div class="container">
+          <div class="row">
+            <div class="col-6 file left">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_14.svg" [svgStyle]="{ 'width.px':68, 'heigth.px':68 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__title">МУВР</span>
+                  <span class="card__subtitle">Статус</span>
+                  <span class="card__title__light">В обработке</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 file left">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_15.svg" [svgStyle]="{ 'width.px':68, 'heigth.px':68 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__title">Санкции СМО</span>
+                  <span class="card__subtitle">12.12.2021</span>
+                  <span class="card__title__light">Загружен</span>
                 </div>
               </div>
             </div>

@@ -1,6 +1,23 @@
 .container__white {
   background-color: white;
 }
+.file {
+  &.left {
+    padding-left: 60px;
+  }
+  &.right {
+    padding-right: 60px;
+  }
+}
+.file_label {
+  padding: 0 60px;
+  margin-bottom: 26px;
+  span {
+    font-size: 18px;
+    font-family: GolosRegular, sans-serif;
+    color: #333333;
+  }
+}
 .oms {
   .pt-none {
     margin-top: 0 !important;
@@ -75,6 +92,11 @@
     font-size: 18px;
     font-family: GolosBold, sans-serif;
   }
+  .card__title__light {
+    font-size: 24px;
+    font-family: GolosRegular, sans-serif;
+    color: #333333;
+  }
   .card__title {
     font-size: 18px;
     font-family: GolosRegular, sans-serif;
@@ -120,6 +142,11 @@
         font-size: 24px !important;
       }
       font-size: 18px;
+      font-family: GolosRegular, sans-serif;
+      color: #333333;
+    }
+    .card__title__light {
+      font-size: 24px;
       font-family: GolosRegular, sans-serif;
       color: #333333;
     }
