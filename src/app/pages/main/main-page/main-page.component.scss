@@ -1,0 +1,132 @@
+.container__white {
+  background-color: white;
+}
+.oms {
+  .pt-none {
+    margin-top: 0 !important;
+  }
+}
+.margin {
+ margin-top: 35px;
+}
+.card__col-labels {
+  margin-top: 45px;
+  margin-bottom: 26px;
+  div {
+    span {
+      font-family: GolosBold, sans-serif;
+      color: #333333;
+      font-size: 18px;
+    }
+  }
+}
+.container-fluid {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .row:first-child {
+    padding-bottom: 35px;
+    span {
+      font-size: 24px;
+      font-family: GolosRegular, sans-serif;
+      color: black;
+    }
+  }
+}
+.sources {
+  padding-bottom: 50px !important;
+}
+.card-light {
+  background-color: white;
+  &.img_1 {
+    background-image: url("/assets/images/img_1.png");
+  }
+  &.img_2 {
+    background-image: url("/assets/images/img_2.png");
+  }
+  &.img_3 {
+    background-image: url("/assets/images/img_3.png");
+  }
+  &.img_4 {
+    background-image: url("/assets/images/img_4.png");
+  }
+  &.img {
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &.img:hover {
+    background-color: white !important;
+  }
+  &.icon-item {
+    padding: 0;
+    height: 110px;
+  }
+  transition: ease 0.2s;
+  &:hover {
+    transition: ease 0.2s;
+    cursor: pointer;
+    background-color: #f5f5f5;
+  }
+  gap: 24px;
+  .card__subtitle {
+    &.head {
+      font-size: 24px !important;
+    }
+    font-size: 18px;
+    font-family: GolosBold, sans-serif;
+  }
+  .card__title {
+    font-size: 18px;
+    font-family: GolosRegular, sans-serif;
+    color: #76767A;
+  }
+  div {
+    gap: 16px;
+  }
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 34px 26px;
+}
+.white-container {
+  & > .container {
+    margin-top: 24px;
+  }
+  margin-top: 20px;
+  padding: 31px 64px;
+  background-color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  & > span {
+    font-family: GolosBold, sans-serif;
+    font-size: 24px;
+    text-align: center;
+  }
+  .col-8, .col-12 {
+    margin-top: 28px;
+  }
+
+  .card {
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid #76767A;
+    padding: 23px;
+    gap: 20px;
+    div {
+      gap: 8px;
+    }
+    .card__subtitle {
+      &.head {
+        font-size: 24px !important;
+      }
+      font-size: 18px;
+      font-family: GolosRegular, sans-serif;
+      color: #333333;
+    }
+    .card__title {
+      font-size: 24px;
+      font-family: GolosBold, sans-serif;
+      color: #333333;
+    }
+  }
+}
