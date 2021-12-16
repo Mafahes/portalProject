@@ -1,0 +1,46 @@
+.container {
+  min-height: calc(100vh - 354px);
+}
+.container-white {
+  .button_container {
+    margin-top: 45px;
+  }
+  margin: 62px 0;
+  padding: 37px 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  background-color: white;
+  .label {
+    color: #333333;
+    font-family: GolosBold, sans-serif;
+    font-size: 18px;
+  }
+  .file__container {
+    gap: 16px;
+    margin-top: 14px;
+    span {
+      color: #76767a;
+      font-size: 18px;
+      font-family: GolosRegular, sans-serif;
+    }
+  }
+  .file-uploaded__container {
+    mat-icon {
+      margin-left: 70px;
+    }
+    gap: 10px;
+    margin-top: 44px;
+    .file-name {
+      span:nth-child(1) {
+        color: #002CC7;
+        font-family: GolosRegular, sans-serif;
+        font-size: 18px;
+      }
+      span:nth-child(2) {
+        color: #A7A7AB;
+        font-family: GolosRegular, sans-serif;
+        font-size: 12px;
+      }
+    }
+  }
+}

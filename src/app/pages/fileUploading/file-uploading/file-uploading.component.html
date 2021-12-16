@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-white w-100 d-flex flex-column align-items-center">
+        <span class="label">Загрузите файл:</span>
+        <div *ngIf="!file" class="d-flex flex-row file__container align-items-center">
+          <input hidden type="file" #uploader (change)="onUpload($event)"/>
+          <button (click)="uploader.click()" class="gov-button_light">Выберите файл</button>
+          <span>Файл не выбран</span>
+        </div>
+        <div *ngIf="!!file" class="d-flex flex-row file-uploaded__container align-items-center">
+          <svg-icon src="assets/icons/mainPage/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+          <div class="d-flex flex-column file-name">
+            <span>{{file.name.split('.')[0]}}</span>
+            <span>{{file.name.split('.')[file.name.split('.').length - 1]}} {{(file.size / (1024*1024)).toFixed(2)}}МБ</span>
+          </div>
+          <mat-icon class="hover-pointer" (click)="removeFile()">close</mat-icon>
+        </div>
+        <div class="button_container">
+          <button class="gov-button">Готово</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

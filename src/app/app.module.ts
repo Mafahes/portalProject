@@ -16,6 +16,8 @@ import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { UserAddComponent } from './pages/users/user-add/user-add.component';
 import {NgSelectModule} from "@ng-select/ng-select";
 import { MainPageComponent } from './pages/main/main-page/main-page.component';
+import { FileUploadingComponent } from './pages/fileUploading/file-uploading/file-uploading.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { MainPageComponent } from './pages/main/main-page/main-page.component';
     UserListComponent,
     UserAddComponent,
     MainPageComponent,
+    FileUploadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { MainPageComponent } from './pages/main/main-page/main-page.component';
     AngularSvgIconModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
-    NgSelectModule
+    NgSelectModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

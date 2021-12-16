@@ -1,3 +1,18 @@
+@media (max-width: 992px) {
+  .file {
+    &.left {
+      padding: 0 !important;
+    }
+    &.right {
+      padding: 0 !important;
+    }
+  }
+}
+@media (max-width: 576px) {
+  .white-container {
+    padding: 20px 20px !important;
+  }
+}
 .container__white {
   background-color: white;
 }

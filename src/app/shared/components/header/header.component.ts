@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StorageService} from "../../injectables/storage.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,10 @@ import {StorageService} from "../../injectables/storage.service";
 export class HeaderComponent implements OnInit {
 
   constructor(
-    public storage: StorageService
+    public storage: StorageService,
+    public router: Router
   ) { }
-  self = false;
+  isAdmin = true;
   ngOnInit(): void {
   }
 

@@ -4,10 +4,10 @@
       <div class="white-container d-flex flex-column">
         <div class="container pt-none">
           <div class="row">
-            <div class="col-3">
+            <div class="col-3 d-sm-none d-md-block d-xl-block col-xl-3 col-md-1">
 
             </div>
-            <div class="pt-none col-6 px-5">
+            <div class="pt-none col-6 col-sm-12 col-xl-6 col-md-10 px-5">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_7.svg" [svgStyle]="{ 'width.px':56, 'heigth.px':64 }"></svg-icon>
                 <div class="d-flex flex-column justify-content-center">
@@ -16,7 +16,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-3 d-sm-none col-xl-3 col-md-1">
 
             </div>
           </div>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-5">
+            <div class="col-5 col-md-6 col-xl-5">
               <div class="card w-100 d-flex align-items-center flex-row">
                 <svg-icon src="assets/icons/mainPage/main_8.svg" [svgStyle]="{ 'width.px':40, 'heigth.px':40 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -41,8 +41,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-2"></div>
-            <div class="col-5">
+            <div class="col-xl-2 d-xl-block d-md-none"></div>
+            <div class="col-5 col-md-6 col-xl-5">
               <div class="card w-100 d-flex align-items-center flex-row">
                 <svg-icon src="assets/icons/mainPage/main_9.svg" [svgStyle]="{ 'width.px':34, 'heigth.px':34 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -53,7 +53,7 @@
             </div>
           </div>
           <div class="row margin">
-            <div class="col-5">
+            <div class="col-5 col-md-6 col-xl-5">
               <div class="card w-100 d-flex align-items-center flex-row">
                 <svg-icon src="assets/icons/mainPage/main_10.svg" [svgStyle]="{ 'width.px':40, 'heigth.px':40 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -62,8 +62,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-2"></div>
-            <div class="col-5">
+            <div class="col-xl-2 d-xl-block d-md-none"></div>
+            <div class="col-5 col-md-6 col-xl-5">
               <div class="card w-100 d-flex align-items-center flex-row">
                 <svg-icon src="assets/icons/mainPage/main_11.svg" [svgStyle]="{ 'width.px':34, 'heigth.px':34 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -139,12 +139,12 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 file_label">
+            <div *ngIf="isOms" class="col-12 file_label">
               <span>
                 Количество файлов в очереди обработки:
               </span>
             </div>
-            <div class="col-6 file left">
+            <div *ngIf="isOms" class="col-12 col-xl-6 col-lg-6 file left">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_12.svg" [svgStyle]="{ 'width.px':41, 'heigth.px':52 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -153,7 +153,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 file right">
+            <div *ngIf="isOms" class="col-12 col-xl-6 col-lg-6 file right">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_13.svg" [svgStyle]="{ 'width.px':41, 'heigth.px':52 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -182,7 +182,7 @@
         <span>Информация о статусе загрузки МУВР и санкций от СМО</span>
         <div class="container">
           <div class="row">
-            <div class="col-6 file left">
+            <div class="col-12 col-xl-6 file left">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_14.svg" [svgStyle]="{ 'width.px':68, 'heigth.px':68 }"></svg-icon>
                 <div class="d-flex flex-column">
@@ -192,7 +192,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 file left">
+            <div class="col-12 col-xl-6 file left">
               <div class="card w-100 d-flex flex-row">
                 <svg-icon src="assets/icons/mainPage/main_15.svg" [svgStyle]="{ 'width.px':68, 'heigth.px':68 }"></svg-icon>
                 <div class="d-flex flex-column">
