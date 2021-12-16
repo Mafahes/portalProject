@@ -7,6 +7,9 @@ import {UserListComponent} from "./pages/users/user-list/user-list.component";
 import {UserAddComponent} from "./pages/users/user-add/user-add.component";
 import {MainPageComponent} from "./pages/main/main-page/main-page.component";
 import {FileUploadingComponent} from "./pages/fileUploading/file-uploading/file-uploading.component";
+import {PermissionsComponent} from "./pages/admin/permissions/permissions.component";
+import {InfoResourcesComponent} from "./pages/admin/info-resources/info-resources.component";
+import {StructureComponent} from "./pages/admin/structure/structure.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -15,7 +18,11 @@ const routes: Routes = [
   { path: 'reports', component: ReportsComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/add', component: UserAddComponent },
-  { path: 'upload', component: FileUploadingComponent }
+  { path: 'upload', component: FileUploadingComponent },
+  { path: 'permissions', component: PermissionsComponent },
+  { path: 'resources', component: InfoResourcesComponent },
+  { path: 'structure', component: StructureComponent }
+
 ];
 
 @NgModule({

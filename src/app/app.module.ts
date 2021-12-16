@@ -18,6 +18,10 @@ import {NgSelectModule} from "@ng-select/ng-select";
 import { MainPageComponent } from './pages/main/main-page/main-page.component';
 import { FileUploadingComponent } from './pages/fileUploading/file-uploading/file-uploading.component';
 import {MatIconModule} from "@angular/material/icon";
+import { PermissionsComponent } from './pages/admin/permissions/permissions.component';
+import {InfoResourcesComponent, ResourcesDialogComponent} from './pages/admin/info-resources/info-resources.component';
+import { StructureComponent } from './pages/admin/structure/structure.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import {MatIconModule} from "@angular/material/icon";
     UserAddComponent,
     MainPageComponent,
     FileUploadingComponent,
+    PermissionsComponent,
+    InfoResourcesComponent,
+    StructureComponent,
+    ResourcesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,8 @@ import {MatIconModule} from "@angular/material/icon";
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,8 +25,11 @@
               <span routerLinkActive="active" routerLink="/upload">Загрузка файлов</span>
             </ng-container>
             <ng-container *ngIf="isAdmin">
-              <span routerLinkActive="active" routerLink="/permissions">Управление разрешениями</span>
-              <span routerLinkActive="active" routerLink="/users">Управление пользователями</span>
+              <span routerLinkActive="active" routerLink="/permissions">Разрешения</span>
+              <span routerLinkActive="active" routerLink="/users">Пользователи</span>
+              <span routerLinkActive="active" routerLink="/resources">Информационные ресурсы</span>
+              <span routerLinkActive="active" routerLink="/structure">Структура</span>
+
             </ng-container>
             <div *ngIf="(storage.user$ | async) !== null" class="menu__controls d-flex flex-row justify-content-end">
               <span routerLink="/profile">Петров И.И.</span>
