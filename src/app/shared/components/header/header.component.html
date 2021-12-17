@@ -29,12 +29,11 @@
               <span routerLinkActive="active" routerLink="/users">Пользователи</span>
               <span routerLinkActive="active" routerLink="/resources">Информационные ресурсы</span>
               <span routerLinkActive="active" routerLink="/structure">Структура</span>
-
             </ng-container>
             <div *ngIf="(storage.user$ | async) !== null" class="menu__controls d-flex flex-row justify-content-end">
               <span routerLink="/profile">Петров И.И.</span>
               <svg-icon src="assets/icons/cross.svg" [svgStyle]="{ 'width.px':30 }"></svg-icon>
-              <span class="menu__exit">Выход</span>
+              <span (click)="logOut()" class="menu__exit">Выход</span>
             </div>
           </div>
         </div>

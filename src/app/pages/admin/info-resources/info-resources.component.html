@@ -14,20 +14,10 @@
               <button class="gov-button_light" (click)="addResource()">Добавить</button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-3">
-              <div class="w-100 h-100 d-flex flex-column justify-content-center card">
-                <img class="w-100" src="/assets/images/img_2.png"/>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="w-100 h-100 d-flex flex-column justify-content-center card">
-                <img class="w-100" src="/assets/images/img_3.png"/>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="w-100 h-100 d-flex flex-column justify-content-center card">
-                <img class="w-100" src="/assets/images/img_4.png"/>
+          <div class="row cardRows">
+            <div class="col-3" *ngFor="let item of ((storage.resource$ | async)?.data)">
+              <div (click)="changeResource(item)" class="w-100 hover-pointer h-100 d-flex flex-column justify-content-center card">
+                <img class="w-100" [src]="'https://users.3dcafe.ru/upload/' + item.file.fileName"/>
               </div>
             </div>
           </div>

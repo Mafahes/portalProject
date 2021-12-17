@@ -70,18 +70,6 @@
 }
 .card-light {
   background-color: white;
-  &.img_1 {
-    background-image: url("/assets/images/img_1.png");
-  }
-  &.img_2 {
-    background-image: url("/assets/images/img_2.png");
-  }
-  &.img_3 {
-    background-image: url("/assets/images/img_3.png");
-  }
-  &.img_4 {
-    background-image: url("/assets/images/img_4.png");
-  }
   &.img {
     background-position: center;
     background-repeat: no-repeat;

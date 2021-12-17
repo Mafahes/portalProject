@@ -1,3 +1,35 @@
+.reset {
+  color: #0050B2 !important;
+  font-family: GolosRegular, sans-serif !important;
+  font-size: 14px !important;
+  text-decoration: underline;
+}
+::ng-deep {
+  .d-container svg {
+    fill: #636363 !important;
+  }
+  .d-container mat-dialog-container {
+    background-color: #FFE1E1 !important;
+    padding: 10px !important;
+  }
+}
+.dialog {
+  & {
+    min-width: 600px;
+  }
+  .error {
+    color: #FF0000;
+    font-size: 24px;
+    font-family: GolosRegular, sans-serif;
+    margin-bottom: 30px;
+  }
+  .desc {
+    color: black;
+    font-size: 24px;
+    font-family: GolosRegular, sans-serif;
+    margin-bottom: 30px;
+  }
+}
 .container {
   height: 80%;
   .row:nth-child(1) {

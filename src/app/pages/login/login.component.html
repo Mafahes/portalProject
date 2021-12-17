@@ -2,12 +2,13 @@
   <div class="row">
     <div class="col-12 auth-form__wrapper d-flex flex-column justify-content-center align-items-center">
       <span>АВТОРИЗАЦИЯ</span>
-      <form [formGroup]="authForm" class="d-flex flex-column align-items-center">
+      <form [formGroup]="authForm" (submit)="onSubmit()" class="d-flex flex-column align-items-center">
         <span class="w-100">Логин</span>
         <input type="text" formControlName="login" class="gov-input w-100"/>
         <span class="w-100">Пароль</span>
         <input type="password" formControlName="password" class="gov-input w-100"/>
-        <button class="gov-button" [disabled]="!authForm.valid">Войти</button>
+        <span class="reset hover-pointer">Забыли пароль?</span>
+        <button type="submit" class="gov-button" [disabled]="!authForm.valid">Войти</button>
       </form>
     </div>
   </div>

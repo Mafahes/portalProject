@@ -9,7 +9,7 @@
               <span>ФИО</span>
             </div>
             <div class="col-7">
-              <span>Петров Иван Иванович</span>
+              <span>{{(storage.user$ | async)?.secondName || ''}} {{(storage.user$ | async)?.firstName || ''}} {{(storage.user$ | async)?.patronymic || ''}}</span>
             </div>
           </div>
           <div class="row m-0">
@@ -17,7 +17,7 @@
               <span>Дата рождения</span>
             </div>
             <div class="col-7">
-              <span>01.01.1990</span>
+              <span>{{(storage.user$ | async)?.dateBirth | date: 'dd.MM.yyyy'}}</span>
             </div>
           </div>
           <div class="row m-0">
@@ -49,7 +49,7 @@
               <span>Электронная почта</span>
             </div>
             <div class="col-7">
-              <span>petrov@yandex.ru</span>
+              <span>{{(storage.user$ | async)?.email}}</span>
             </div>
           </div>
           <div class="row m-0">

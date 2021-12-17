@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from "@angular/common/http";
-import { LoginComponent } from './pages/login/login.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {LoginComponent, LoginDialogComponent} from './pages/login/login.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import {AngularSvgIconModule} from "angular-svg-icon";
@@ -22,7 +22,12 @@ import { PermissionsComponent } from './pages/admin/permissions/permissions.comp
 import {InfoResourcesComponent, ResourcesDialogComponent} from './pages/admin/info-resources/info-resources.component';
 import { StructureComponent } from './pages/admin/structure/structure.component';
 import {MatDialogModule} from "@angular/material/dialog";
-
+import {HttpInterceptor} from "./shared/interceptor/http.interceptor";
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: HttpInterceptor,
+  multi: true
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +43,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     PermissionsComponent,
     InfoResourcesComponent,
     StructureComponent,
-    ResourcesDialogComponent
+    ResourcesDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatIconModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    INTERCEPTOR_PROVIDER
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

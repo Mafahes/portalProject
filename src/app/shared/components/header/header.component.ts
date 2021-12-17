@@ -16,5 +16,9 @@ export class HeaderComponent implements OnInit {
   isAdmin = true;
   ngOnInit(): void {
   }
-
+  logOut(): void {
+    document.cookie = 'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    this.storage.setData('user', null);
+    this.router.navigate(['/auth']);
+  }
 }

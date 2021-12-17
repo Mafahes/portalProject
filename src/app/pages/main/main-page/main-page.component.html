@@ -77,7 +77,7 @@
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="!isOms">
+  <div class="row" *ngIf="!isOms && !isAdmin">
     <div class="col-12">
       <div class="white-container d-flex flex-column">
         <span>Счет 11.2021</span>
@@ -106,7 +106,65 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="isAdmin">
+    <div class="col-12">
+      <div class="white-container d-flex flex-column">
+        <span>Счет 11.2021</span>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-12 col-xl-4 col-lg-6">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_1.svg" [svgStyle]="{ 'width.px':48, 'heigth.px':50 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Вид</span>
+                  <span class="card__title">Окончательный</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-xl-4 col-lg-6">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_2.svg" [svgStyle]="{ 'width.px':54, 'heigth.px':54 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Статус</span>
+                  <span class="card__title">В обработке</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12 col-xl-4 col-lg-6">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_3.svg" [svgStyle]="{ 'width.px':48, 'heigth.px':50 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Предъявленная сумма</span>
+                  <span class="card__title">1 000 000 руб.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-xl-4 col-lg-6">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_4.svg" [svgStyle]="{ 'width.px':54, 'heigth.px':54 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Доля МУВР</span>
+                  <span class="card__title">10 000 руб.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-xl-4 col-lg-6">
+              <div class="card w-100 d-flex flex-row">
+                <svg-icon src="assets/icons/mainPage/main_5.svg" [svgStyle]="{ 'width.px':54, 'heigth.px':54 }"></svg-icon>
+                <div class="d-flex flex-column">
+                  <span class="card__subtitle">Санкции МЭК</span>
+                  <span class="card__title">10 000 руб.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="!isAdmin">
     <div class="col-12">
       <div class="white-container d-flex flex-column">
         <span>Информация о предъявленной к оплате сумме</span>
@@ -215,7 +273,7 @@
     </div>
   </div>
   <div class="row d-flex flex-row justify-content-center" style="gap: 28px">
-    <div style="max-width: 327px; min-height: 164px" class="card-light h-100 w-100 d-flex flex-row">
+    <div *ngIf="isAdmin" routerLink="/permissions" style="max-width: 327px; min-height: 164px" class="card-light h-100 w-100 d-flex flex-row">
       <svg-icon src="assets/icons/mainPage/nav_3.svg" [svgStyle]="{ 'width.px':78, 'heigth.px':78 }"></svg-icon>
       <div class="d-flex flex-column">
         <span class="card__subtitle">Администрирование</span>
@@ -229,7 +287,7 @@
         <span class="card__title">Сводно-аналитические формы</span>
       </div>
     </div>
-    <div style="max-width: 327px; min-height: 164px" class="card-light h-100 w-100 h-100 d-flex flex-row">
+    <div routerLink="/upload" style="max-width: 327px; min-height: 164px" class="card-light h-100 w-100 h-100 d-flex flex-row">
       <svg-icon src="assets/icons/mainPage/nav_2.svg" [svgStyle]="{ 'width.px':56, 'heigth.px':80 }"></svg-icon>
       <div class="d-flex flex-column">
         <span class="card__subtitle">Загрузка файлов</span>
@@ -244,29 +302,16 @@
       <span>Информационные ресурсы:</span>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngFor="let item of resources">
     <div class="col-2">
 
     </div>
-    <div class="col-2">
-      <div class="card-light img_1 img icon-item w-100 d-flex flex-row">
+    <div class="col-2" *ngFor="let subitem of item">
+      <a [href]="subitem.link">
+        <div class="card-light img icon-item w-100 d-flex flex-row" [style.background-image]="'url(' + 'https://users.3dcafe.ru/upload/' + subitem.file.fileName + ')'">
 
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card-light img_2 img icon-item w-100 h-100 d-flex flex-row">
-
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card-light img_3 img icon-item w-100 h-100 d-flex flex-row">
-
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="card-light img_4 img icon-item w-100 h-100 d-flex flex-row">
-
-      </div>
+        </div>
+      </a>
     </div>
     <div class="col-2">
 

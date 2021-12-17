@@ -1,5 +1,10 @@
-<div>
+<div *ngIf="init">
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <div class="overlay" *ngIf="loading">
+    <div class="overlay__inner">
+      <div class="overlay__content"><span class="spinner"></span></div>
+    </div>
+  </div>
 </div>
