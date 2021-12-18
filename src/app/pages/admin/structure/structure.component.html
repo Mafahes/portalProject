@@ -1,1 +1,164 @@
-<p>structure works!</p>
+<div class="container scroll-container">
+  <div class="row">
+    <div class="col-12 user__wrapper d-flex flex-column justify-content-center align-items-center">
+      <div class="container-fluid form" *ngIf="!isAdd">
+        <div class="row">
+          <div class="col-3">
+
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <span>Структура</span>
+          </div>
+          <div class="col-2 offset-1 d-flex flex-row justify-content-end align-items-end">
+            <button class="gov-button_light w-100" (click)="isAdd = true">Добавить</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 search">
+            <input [(ngModel)]="search" (ngModelChange)="filter($event)" placeholder="Поиск" class="gov-input gov-input-search"/>
+          </div>
+        </div>
+        <div class="row wrapper__card">
+          <div class="col-12 d-flex flex-column" *ngIf="!!structureSrc">
+            <div class="w-100" *ngFor="let i of structureSrc.data; let id = index">
+              <div class="w-100 card card-list d-flex flex-row align-items-center">
+                <svg-icon (click)="i.hide = !i.hide" class="hover-pointer" [src]="i.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon src="assets/icons/structure/main.svg" [svgStyle]="{ 'width.px':30, 'heigth.px':30 }"></svg-icon>
+                <span>{{i.name || '-'}}</span>
+                <button (click)="switchEdit(i.id)" class="gov-button">Редактировать</button>
+                <mat-icon class="hover-pointer" (click)="deleteStructure(i.id)">close</mat-icon>
+              </div>
+              <mat-expansion-panel class="ml-card-1" [class.pt-10]="!i.hide" [expanded]="!i.hide">
+                <div *ngFor="let manage of i.manages">
+                  <div class="card d-flex flex-row">
+                    <svg-icon (click)="manage.hide = !manage.hide" class="hover-pointer" [src]="manage.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                    <span>{{manage.name}} ({{manage.units.length}})</span>
+                  </div>
+                  <mat-expansion-panel class="ml-card-2" [class.pt-10]="!manage.hide" [expanded]="!manage.hide">
+                    <div *ngFor="let unit of manage.units">
+                      <div class="card d-flex flex-row">
+                        <svg-icon (click)="unit.hide = !unit.hide" class="hover-pointer" [src]="unit.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                        <span>{{unit.name}} ({{unit.postions.length}})</span>
+                      </div>
+                      <mat-expansion-panel class="ml-card-3" [class.pt-10]="!unit.hide" [expanded]="!unit.hide">
+                        <div class="d-flex flex-column justify-content-start align-items-start">
+                          <span *ngFor="let pos of unit.postions; let num = index">
+                            {{num + 1}}. {{pos.name}}
+                          </span>
+                        </div>
+
+                      </mat-expansion-panel>
+                    </div>
+
+                  </mat-expansion-panel>
+                </div>
+
+              </mat-expansion-panel>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form *ngIf="isAdd" [formGroup]="form" class="w-100">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-2 d-flex flex-row justify-content-start align-items-center return__container hover-pointer" (click)="isAdd = false;isEdit = false;resetForm()">
+              <svg-icon src="assets/icons/return.svg" [svgStyle]="{ 'width.px':9, 'heigth.px':10 }"></svg-icon>
+              <span>назад</span>
+            </div>
+            <div class="col-6 offset-1 d-flex justify-content-center align-items-center">
+              <span>{{isEdit ? 'Редактировать' : 'Добавить'}} структуру</span>
+            </div>
+          </div>
+          <div class="row form-row d-flex flex-column">
+            <div class="col-12">
+              <div class="card d-flex flex-row w-100">
+                <svg-icon src="assets/icons/structure/main.svg" [svgStyle]="{ 'width.px':30, 'heigth.px':30 }"></svg-icon>
+                <input formControlName="name" placeholder="Организация" class="gov-input"/>
+              </div>
+            </div>
+            <div class="col-11 offset-1 fb-array d-flex flex-column" *ngIf="getControls()['controls'].length > 0" formArrayName="manages">
+              <div *ngFor="let manage of getControls()['controls']; let i = index" formGroupName="{{i}}" class="d-flex flex-column fb-array">
+                <div class="card d-flex flex-row w-100 justify-content-between align-items-center">
+                  <input readonly formControlName="name" placeholder="Управление не указано" class="gov-input"/>
+                  <mat-icon class="hover-pointer" (click)="removeManage(i)">close</mat-icon>
+                </div>
+                <div formArrayName="units" *ngIf="getControls(i)['controls'].length > 0" class="d-flex flex-column fb-array">
+                  <div *ngFor="let unit of getControls(i)['controls']; let i2 = index" formGroupName="{{i2}}" class="col-10 offset-2 fb-array d-flex flex-column">
+                    <div class="card d-flex flex-row w-100 justify-content-between align-items-center">
+                      <input readonly formControlName="name" placeholder="Отдел не указан" class="gov-input"/>
+                      <mat-icon class="hover-pointer" (click)="removeUnit(i, i2)">close</mat-icon>
+                    </div>
+                    <div formArrayName="postions" *ngIf="getControls(i, i2)['controls'].length > 0" class="d-flex flex-column fb-array">
+                      <div *ngFor="let postion of getControls(i, i2)['controls']; let i3 = index" formGroupName="{{i3}}" class="col-10 offset-2">
+                        <div class="card d-flex flex-row w-100 justify-content-between align-items-center">
+                          <input readonly formControlName="name" placeholder="Должность не указана" class="gov-input"/>
+                          <mat-icon class="hover-pointer" (click)="removepostion(i, i2, i3)">close</mat-icon>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-10 offset-2 fb-array d-flex flex-column">
+                      <div class="card d-flex flex-row w-100">
+                        <input #val3 placeholder="Должность" class="gov-input"/>
+                        <div>
+                          <button class="gov-button" (click)="addpostion(i, i2, val3.value);val3.value = ''">Добавить</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-10 offset-2">
+                  <div class="card d-flex flex-row w-100">
+                    <input #val2 placeholder="Отдел" class="gov-input"/>
+                    <div>
+                      <button class="gov-button" (click)="addUnit(i, val2.value);val2.value = ''">Добавить</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-11 offset-1">
+              <div class="card d-flex flex-row w-100">
+                <input placeholder="Управление" #val1 class="gov-input"/>
+                <div>
+                  <button class="gov-button" (click)="addManages(val1.value);val1.value = ''">Добавить</button>
+                </div>
+              </div>
+            </div>
+<!--            <div class="col-10 offset-2">-->
+<!--              <div class="card d-flex flex-row w-100">-->
+<!--                <input placeholder="Отдел" class="gov-input"/>-->
+<!--                <div>-->
+<!--                  <button class="gov-button">Добавить</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-9 offset-3">-->
+<!--              <div class="card d-flex flex-row w-100">-->
+<!--                <input placeholder="Должность" class="gov-input"/>-->
+<!--                <div>-->
+<!--                  <button class="gov-button">Добавить</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-8 offset-4">-->
+<!--              <div class="card d-flex flex-row w-100">-->
+<!--                <input placeholder="Сотрудник" class="gov-input"/>-->
+<!--                <div>-->
+<!--                  <button class="gov-button">Добавить</button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+          </div>
+        </div>
+        <div class="container submit">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+              <button class="gov-button" (click)="submit()">Принять</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row"></div>
+</div>

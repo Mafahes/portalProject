@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'permissions', component: PermissionsComponent, canActivate: [ AuthGuard ] },
   { path: 'resources', component: InfoResourcesComponent, canActivate: [ AuthGuard ] },
   { path: 'structure', component: StructureComponent, canActivate: [ AuthGuard ] }
-
 ];
 
 @NgModule({

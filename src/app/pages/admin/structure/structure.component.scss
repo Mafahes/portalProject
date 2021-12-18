@@ -1,0 +1,121 @@
+::ng-deep {
+  .pt-10 {
+    padding-top: 10px !important;
+  }
+  .ml-card-1 {
+    margin-left: 20px !important;
+  }
+  .ml-card-2 {
+    margin-left: 40px !important;
+  }
+  .ml-card-3 {
+    margin-left: 60px !important;
+  }
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
+  mat-expansion-panel {
+    .mat-expansion-panel-body {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+    }
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.0) !important;
+    .card {
+      align-items: center;
+      span {
+        color: #333333 !important;
+        font-size: 24px !important;
+        line-height: 29px !important;
+      }
+    }
+  }
+}
+.fb-array {
+  gap: 19px;
+}
+.wrapper__card {
+  & > .col-12 {
+    gap: 20px;
+  }
+}
+.card-list {
+  height: 90px !important;
+  span {
+    flex-grow: 1;
+    color: #333333 !important;
+    font-size: 24px !important;
+    line-height: 29px !important;
+  }
+}
+.card {
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex-grow: 1;
+  }
+  border-radius: 20px;
+  border: 1px solid #76767A;
+  padding: 10px 25px;
+  gap: 20px;
+  input {
+    border: transparent !important;
+    padding: 5px !important;
+    color: #76767A !important;
+    font-family: GolosRegular, sans-serif !important;
+    margin: 0 !important;
+  }
+}
+.submit {
+  margin-top: 30px  ;
+}
+form, .form {
+  height: 65vh;
+  overflow-y: scroll;
+}
+.form-row {
+  margin-top: 60px;
+  gap: 20px;
+}
+.gov-input-search {
+  background-image: url("/assets/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: 3% 50%;
+  padding-left:30px;
+  width: 200px;
+}
+.return__container {
+  span {
+    font-family: GolosRegular, sans-serif !important;
+    font-size: 18px !important;
+    color: #636363 !important;
+    margin-left: 13px;
+  }
+}
+.search {
+  margin-top: 29px;
+}
+.scroll-container {
+  height: 80%;
+
+}
+.user__wrapper {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  padding: 30px 55px;
+  margin-top: 47px;
+  border-radius: 20px;
+  span {
+    &:nth-child(1) {
+      text-align: center;
+      font-size: 18px;
+      color: #202022;
+      font-family: GolosRegular, sans-serif;
+      line-height: 1em;
+    }
+    font-family: GolosRegular, sans-serif;
+    font-size: 18px;
+    color: #a7a7ab;
+  }
+}

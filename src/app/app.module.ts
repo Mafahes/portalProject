@@ -23,6 +23,7 @@ import {InfoResourcesComponent, ResourcesDialogComponent} from './pages/admin/in
 import { StructureComponent } from './pages/admin/structure/structure.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {HttpInterceptor} from "./shared/interceptor/http.interceptor";
+import {MatExpansionModule} from "@angular/material/expansion";
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: HttpInterceptor,
@@ -46,18 +47,19 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ResourcesDialogComponent,
     LoginDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AngularSvgIconModule.forRoot(),
-    ReactiveFormsModule,
-    FormsModule,
-    NgSelectModule,
-    MatIconModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AngularSvgIconModule.forRoot(),
+        ReactiveFormsModule,
+        FormsModule,
+        NgSelectModule,
+        MatIconModule,
+        MatDialogModule,
+        MatExpansionModule
+    ],
   providers: [
     INTERCEPTOR_PROVIDER
   ],
