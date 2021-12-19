@@ -97,8 +97,10 @@ form, .form {
   margin-top: 29px;
 }
 .scroll-container {
-  height: 80%;
-
+  height: 100%;
+  & > .row:nth-child(1) {
+    height: 93%;
+  }
 }
 .user__wrapper {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
