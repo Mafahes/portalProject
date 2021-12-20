@@ -109,16 +109,31 @@ export class StructureComponent implements OnInit {
     this.app.loading = false;
   }
   filter(s: any): void {
-    console.log(!!s);
     this.structureSrc.data = JSON.parse(
       JSON.stringify(
         this.structure.data.filter((e) =>
-          !!s ? e.name.toLocaleLowerCase().includes(s.toLowerCase()) : true
+          !!s
+            ? e.name.toLocaleLowerCase().includes(s.toLowerCase()) ||
+              e.manages.some((e) =>
+                e.name.toLowerCase().includes(s.toLowerCase())
+              ) ||
+              e.manages.some((e) =>
+                e.units.some((e2) =>
+                  e2.name.toLowerCase().includes(s.toLowerCase())
+                )
+              ) ||
+              e.manages.some((e) =>
+                e.units.some((e2) =>
+                  e2.postions.some((e3) =>
+                    e3.name.toLowerCase().includes(s.toLowerCase())
+                  )
+                )
+              )
+            : true
         )
       )
     );
     if (!s) {
-      console.log('1231');
       this.structureSrc.data = JSON.parse(JSON.stringify(this.structure.data));
     }
   }
@@ -138,7 +153,9 @@ export class StructureComponent implements OnInit {
         })
       );
       e.units.forEach((e2, i2) => {
-        console.log((this.form.controls['manages'] as FormArray).controls.length);
+        console.log(
+          (this.form.controls['manages'] as FormArray).controls.length
+        );
         (
           (this.form.controls['manages'] as FormArray).controls[i].get(
             'units'
@@ -186,7 +203,10 @@ export class StructureComponent implements OnInit {
   }
   async submit(): Promise<void> {
     this.app.loading = true;
-    await (this.isEdit ? this.api.updateOrgScheme(this.form.value) : this.api.createOrgScheme(this.form.value)).toPromise();
+    await (this.isEdit
+      ? this.api.updateOrgScheme(this.form.value)
+      : this.api.createOrgScheme(this.form.value)
+    ).toPromise();
     this.structure = await this.api.getStructure().toPromise();
     this.structureSrc = this.structure;
     this.resetForm();
