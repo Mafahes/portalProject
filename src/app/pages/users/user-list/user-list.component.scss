@@ -1,3 +1,9 @@
+.gov-input {
+  background-image: url("/assets/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: 3% 50%;
+  padding-left:30px;
+}
 .container {
   height: 80%;
   .row:nth-child(1) {
@@ -13,8 +19,8 @@
 .user__wrapper {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   background-color: white;
-  padding: 60px 105px;
-  margin-top: 47px;
+  padding: 37px 50px;
+  margin: 62px 0px;
   border-radius: 20px;
   span {
     &:nth-child(1) {
