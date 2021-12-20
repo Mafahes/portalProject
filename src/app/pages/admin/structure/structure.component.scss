@@ -109,7 +109,7 @@ form, .form {
   margin-top: 47px;
   border-radius: 20px;
   span {
-    &:nth-child(1) {
+    &:nth-child(1), &.pos {
       text-align: center;
       font-size: 18px;
       color: #202022;

@@ -1,30 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12 user__wrapper d-flex flex-column justify-content-center align-items-center">
-      <span>Добавить нового пользователя</span>
-      <div class="container-fluid form__profile">
-        <div class="row">
-          <div class="col-5">
-            <span class="w-100">ФИО</span>
-            <input type="text"  class="gov-input w-100"/>
-            <span class="w-100">Организация</span>
-            <ng-select [items]="users" bindLabel="title"></ng-select>
-            <span class="w-100">Должность</span>
-            <ng-select [items]="users" bindLabel="title"></ng-select>
-            <span class="w-100">Электронная почта</span>
-            <input type="text"  class="gov-input w-100"/>
-            <span class="w-100">Логин</span>
-            <input type="text"  class="gov-input w-100"/></div>
-          <div class="col-5 offset-2">
-            <span class="w-100">Дата рождения</span>
-            <input type="date"  class="gov-input w-100"/>
-            <span class="w-100">Структурное подразделение</span>
-            <input type="text"  class="gov-input w-100"/>
-          </div>
-        </div>
-        <div class="row d-flex flex-row justify-content-center">
-          <button class="gov-button">Добавить</button>
-        </div>
+      <div routerLink="/users" class="return hover-pointer d-flex flex-row justify-content-start">
+        <svg-icon src="assets/icons/return.svg" [svgStyle]="{ 'width.px':30, 'heigth.px':30 }"></svg-icon>
+        <span>Назад</span>
+      </div>
+      <span class="title">Добавить нового пользователя</span>
+      <app-user-add-form></app-user-add-form>
+      <div class="row d-flex flex-row justify-content-center">
+        <button class="gov-button">Добавить</button>
       </div>
     </div>
   </div>

@@ -42,7 +42,7 @@
                       </div>
                       <mat-expansion-panel class="ml-card-3" [class.pt-10]="!unit.hide" [expanded]="!unit.hide">
                         <div class="d-flex flex-column justify-content-start align-items-start">
-                          <span *ngFor="let pos of unit.postions; let num = index">
+                          <span class="pos" *ngFor="let pos of unit.postions; let num = index">
                             {{num + 1}}. {{pos.name}}
                           </span>
                         </div>

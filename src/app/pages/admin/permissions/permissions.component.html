@@ -1,13 +1,62 @@
-<div class="container">
+<div class="container scroll-container">
   <div class="row">
-    <div class="col-12">
-      <div class="container-white w-100 d-flex flex-column align-items-center">
-        <span class="label">Управление разрешениями</span>
-        <div class="d-flex w-100 flex-row align-items-center justify-content-between">
-          <input placeholder="Поиск" class="gov-input"/>
-          <button class="gov-button_light">Роль администратора</button>
+    <div class="col-12 user__wrapper d-flex flex-column justify-content-center align-items-center">
+      <div class="container-fluid form">
+        <div class="row">
+          <div class="col-3">
+
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <span>Управление разрешениями</span>
+          </div>
+          <div class="col-3 d-flex flex-row justify-content-end align-items-end">
+            <button class="gov-button_light w-100">Роль администратора</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3 search">
+            <input [(ngModel)]="search" (ngModelChange)="filter($event)" placeholder="Поиск" class="gov-input gov-input-search"/>
+          </div>
+        </div>
+        <div class="row wrapper__card">
+          <div class="col-12 d-flex flex-column" *ngIf="!!structureSrc">
+            <div class="w-100" *ngFor="let i of structureSrc.data; let id = index">
+              <div class="w-100 card card-list d-flex flex-row align-items-center">
+                <svg-icon (click)="i.hide = !i.hide" class="hover-pointer" [src]="i.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon src="assets/icons/structure/main.svg" [svgStyle]="{ 'width.px':30, 'heigth.px':30 }"></svg-icon>
+                <span class="hover-pointer" (click)="selectPerm(0, i.id, i.name)">{{i.name || '-'}}</span>
+              </div>
+              <mat-expansion-panel class="ml-card-1" [class.pt-10]="!i.hide" [expanded]="!i.hide">
+                <div *ngFor="let manage of i.manages">
+                  <div class="card d-flex flex-row">
+                    <svg-icon (click)="manage.hide = !manage.hide" class="hover-pointer" [src]="manage.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                    <span class="hover-pointer" (click)="selectPerm(1, manage.id, manage.name)">{{manage.name}} ({{manage.units.length}})</span>
+                  </div>
+                  <mat-expansion-panel class="ml-card-2" [class.pt-10]="!manage.hide" [expanded]="!manage.hide">
+                    <div *ngFor="let unit of manage.units">
+                      <div class="card hover-pointer d-flex flex-row">
+                        <svg-icon (click)="unit.hide = !unit.hide" class="hover-pointer" [src]="unit.hide ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                        <span>{{unit.name}} ({{unit.postions.length}})</span>
+                      </div>
+                      <mat-expansion-panel class="ml-card-3" [class.pt-10]="!unit.hide" [expanded]="!unit.hide">
+                        <div class="d-flex flex-column justify-content-start align-items-start">
+                          <span class="pos" *ngFor="let pos of unit.postions; let num = index">
+                            {{num + 1}}. {{pos.name}}
+                          </span>
+                        </div>
+
+                      </mat-expansion-panel>
+                    </div>
+
+                  </mat-expansion-panel>
+                </div>
+
+              </mat-expansion-panel>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="row"></div>
 </div>

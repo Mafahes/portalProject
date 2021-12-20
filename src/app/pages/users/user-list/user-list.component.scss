@@ -1,37 +1,206 @@
-.gov-input {
+::ng-deep {
+  .pt-10 {
+    padding-top: 10px !important;
+  }
+  .ml-card-1 {
+    margin-left: 20px !important;
+  }
+  .ml-card-2 {
+    margin-left: 40px !important;
+  }
+  .ml-card-3 {
+    margin-left: 60px !important;
+  }
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
+  mat-expansion-panel {
+    .mat-expansion-panel-body {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+    }
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.0) !important;
+    .card {
+      align-items: center;
+      span {
+        color: #333333 !important;
+        font-size: 24px !important;
+        line-height: 29px !important;
+      }
+    }
+  }
+}
+.fb-array {
+  gap: 19px;
+}
+.wrapper__card {
+  & > .col-12 {
+    gap: 20px;
+  }
+}
+.card-list {
+  height: 90px !important;
+  span {
+    flex-grow: 1;
+    color: #333333 !important;
+    font-size: 24px !important;
+    line-height: 29px !important;
+  }
+}
+.card {
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex-grow: 1;
+  }
+  border-radius: 20px;
+  border: 1px solid #76767A;
+  padding: 10px 25px;
+  gap: 20px;
+  input {
+    border: transparent !important;
+    padding: 5px !important;
+    color: #76767A !important;
+    font-family: GolosRegular, sans-serif !important;
+    margin: 0 !important;
+  }
+}
+.submit {
+  margin-top: 30px  ;
+}
+form, .form {
+  height: 65vh;
+  overflow-y: scroll;
+}
+.form-row {
+  margin-top: 60px;
+  gap: 20px;
+}
+.gov-input-search {
   background-image: url("/assets/icons/search.svg");
   background-repeat: no-repeat;
   background-position: 3% 50%;
   padding-left:30px;
+  width: 200px;
 }
-.container {
-  height: 80%;
-  .row:nth-child(1) {
-    height: 15%;
+.return__container {
+  span {
+    font-family: GolosRegular, sans-serif !important;
+    font-size: 18px !important;
+    color: #636363 !important;
+    margin-left: 13px;
   }
-  .row:nth-child(2) {
-    height: 70%;
-  }
-  .row:nth-child(3) {
-    height: 15%;
+}
+.search {
+  margin-top: 29px;
+}
+.scroll-container {
+  height: 100%;
+  & > .row:nth-child(1) {
+    height: 93%;
   }
 }
 .user__wrapper {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   background-color: white;
-  padding: 37px 50px;
-  margin: 62px 0px;
+  padding: 30px 55px;
+  margin-top: 47px;
   border-radius: 20px;
   span {
-    &:nth-child(1) {
+    &:nth-child(1), &.pos {
+      text-align: center;
       font-size: 18px;
       color: #202022;
       font-family: GolosRegular, sans-serif;
       line-height: 1em;
-      margin-bottom: 24px;
     }
     font-family: GolosRegular, sans-serif;
     font-size: 18px;
     color: #a7a7ab;
   }
+}
+::ng-deep {
+  .dialog-container {
+    .delete__container {
+      margin: 50px 0;
+      & > div {
+        gap: 28px;
+      }
+      .delete__container__account {
+        border: 1px solid #76767a;
+        border-radius: 20px;
+        padding: 26px 35px;
+      }
+      gap: 28px;
+      & > span {
+        font-family: GolosBold, sans-serif;
+        font-size: 18px;
+        color: #333333;
+      }
+    }
+    max-width: 68vw !important;
+    //.mat-dialog-container {
+    //  height: 93vh;
+    //}
+    width: 90%;
+  }
+  .dialog {
+    .panel {
+      margin-bottom: 20px;
+    }
+    .list-container {
+      border: 2px solid #a7a7ab;
+      border-radius: 5px;
+      padding: 14px 24px;
+      gap: 20px;
+      max-height: 190px;
+      overflow-y: auto;
+      margin-bottom: 40px;
+    }
+    .table-container {
+      overflow-y: auto;
+      max-height: 350px;
+      margin-bottom: 40px;
+      border: 2px solid #a7a7ab;
+      border-radius: 5px;
+      .row:last-child {
+        .t-1, .t-2 {
+          border-bottom: 0 !important;
+        }
+      }
+      .t-1, .t-2 {
+        padding: 17px 22px;
+      }
+      .t-1 {
+        border-bottom: 1px solid #A7A7AB;
+        border-right: 1px solid #A7A7AB;
+        width: 40%;
+        span {
+          color: #76767a;
+          font-size: 18px;
+          font-family: GolosRegular, sans-serif;
+        }
+      }
+      .t-2 {
+        border-bottom: 1px solid #A7A7AB;
+        width: 60%;
+        span {
+          color: #333333;
+          font-size: 18px;
+          font-family: GolosRegular, sans-serif;
+        }
+      }
+    }
+    min-width: 500px;
+    span {
+      font-size: 18px;
+      font-family: GolosRegular, sans-serif;
+      color: black;
+    }
+  }
+}
+.panel {
+  margin: 20px 0;
 }

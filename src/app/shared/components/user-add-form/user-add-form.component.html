@@ -1,0 +1,21 @@
+<div class="container-fluid form__profile">
+  <div class="row">
+    <div class="col-5">
+      <span class="w-100">ФИО</span>
+      <input type="text"  class="gov-input w-100"/>
+      <span class="w-100">Организация</span>
+      <ng-select [items]="users" bindLabel="title"></ng-select>
+      <span class="w-100">Должность</span>
+      <ng-select [items]="users" bindLabel="title"></ng-select>
+      <span class="w-100">Электронная почта</span>
+      <input type="text"  class="gov-input w-100"/>
+      <span class="w-100">Логин</span>
+      <input type="text"  class="gov-input w-100"/></div>
+    <div class="col-5 offset-2">
+      <span class="w-100">Дата рождения</span>
+      <input type="date"  class="gov-input w-100"/>
+      <span class="w-100">Структурное подразделение</span>
+      <input type="text"  class="gov-input w-100"/>
+    </div>
+  </div>
+</div>
