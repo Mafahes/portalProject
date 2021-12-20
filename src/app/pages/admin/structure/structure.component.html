@@ -1,6 +1,6 @@
 <div class="container scroll-container">
   <div class="row">
-    <div class="col-12 user__wrapper d-flex flex-column justify-content-center align-items-center">
+    <div class="col-12 user__wrapper d-flex flex-column justify-content-start align-items-center">
       <div class="container-fluid form" *ngIf="!isAdd">
         <div class="row">
           <div class="col-3">
@@ -13,7 +13,7 @@
             <button class="gov-button_light w-100" (click)="isAdd = true">Добавить</button>
           </div>
         </div>
-        <div class="row">
+        <div class="row panel">
           <div class="col-3 search">
             <input [(ngModel)]="search" (ngModelChange)="filter($event)" placeholder="Поиск" class="gov-input gov-input-search"/>
           </div>

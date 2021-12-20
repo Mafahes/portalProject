@@ -34,6 +34,9 @@
 .fb-array {
   gap: 19px;
 }
+.panel {
+  margin-bottom: 20px;
+}
 .wrapper__card {
   & > .col-12 {
     gap: 20px;
@@ -73,6 +76,7 @@
 form, .form {
   height: 65vh;
   overflow-y: scroll;
+  margin-top: 20px;
 }
 .form-row {
   margin-top: 60px;

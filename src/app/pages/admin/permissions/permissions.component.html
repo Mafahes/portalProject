@@ -1,6 +1,6 @@
 <div class="container scroll-container">
   <div class="row">
-    <div class="col-12 user__wrapper d-flex flex-column justify-content-center align-items-center">
+    <div class="col-12 user__wrapper d-flex flex-column justify-content-start align-items-center">
       <div class="container-fluid form">
         <div class="row">
           <div class="col-3">
@@ -10,12 +10,14 @@
             <span>Управление разрешениями</span>
           </div>
           <div class="col-3 d-flex flex-row justify-content-end align-items-end">
-            <button class="gov-button_light w-100">Роль администратора</button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-3 search">
+        <div class="row search">
+          <div class="col-3">
             <input [(ngModel)]="search" (ngModelChange)="filter($event)" placeholder="Поиск" class="gov-input gov-input-search"/>
+          </div>
+          <div class="col-3 d-flex flex-column justify-content-center align-items-center offset-6">
+            <button class="gov-button_light w-100" (click)="isRoleAdmin = true;">Роль администратора</button>
           </div>
         </div>
         <div class="row wrapper__card">

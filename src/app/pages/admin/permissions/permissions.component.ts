@@ -27,6 +27,7 @@ export class PermissionsComponent implements OnInit {
   // @ts-ignore
   structureSrc: StructureObject;
   search: any;
+  isRoleAdmin = false;
   async ngOnInit(): Promise<void> {
     this.app.loading = true;
     this.structure = await this.api.getStructure().toPromise();
