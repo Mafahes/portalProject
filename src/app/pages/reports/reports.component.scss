@@ -1,0 +1,107 @@
+.main-container {
+  min-height: 80vh;
+  padding: 55px 0;
+}
+.white-container {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 20px;
+  background-color: white;
+  margin: 0 10px;
+}
+.gov-input-search {
+  background-image: url("/assets/icons/search.svg");
+  background-repeat: no-repeat;
+  background-position: 3% 50%;
+  padding-left:30px;
+  width: 200px;
+}
+.date__search {
+  border: 1px solid #0050B2;
+  border-radius: 5px;
+  padding: 12px 16px;
+  gap: 10px;
+  span {
+    color: #0050B2;
+    font-size: 18px;
+    font-family: GolosRegular, sans-serif;
+  }
+}
+.sort-item {
+  gap: 40px;
+  border: 1px solid #76767A;
+  border-radius: 5px;
+  padding: 12px 16px;
+  span {
+    color: #76767A;
+    font-size: 18px;
+    font-family: GolosRegular, sans-serif;
+  }
+}
+.row-panel {
+  gap: 25px;
+}
+.mat-header {
+  gap: 18px;
+  span {
+    color: #333333;
+    font-size: 18px;
+    font-family: GolosBold, sans-serif;
+  }
+}
+mat-expansion-panel {
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.0) !important;
+}
+.button-container {
+  margin-top: 40px;
+  .gov-button {
+    height: fit-content;
+  }
+}
+.ng-t {
+  margin-top: 15px;
+}
+.button-container {
+  flex-grow: 1;
+}
+::ng-deep {
+  table-cell-view-mode {
+    div {
+      font-family: GolosRegular, sans-serif;
+    }
+  }
+  ng2-smart-table-title {
+    span {
+      font-family: GolosRegular, sans-serif !important;
+      font-size: 18px;
+      font-weight: normal;
+    }
+  }
+  .ng2-smart-row, .ng2-smart-titles .ng2-smart-th {
+    border-bottom: 1px solid #0065D5;
+  }
+  .ng2-smart-row.selected {
+    background: transparent !important;
+  }
+}
+.folderList {
+  width: 240px;
+ gap: 10px;
+}
+.fileList {
+  margin: 19px 0px;
+  gap: 19px;
+  .flex-row {
+    gap: 13px;
+    span:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    span {
+      font-family: GolosRegular, sans-serif;
+      font-size: 14px;
+      color: #333333;
+    }
+  }
+}

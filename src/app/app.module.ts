@@ -29,6 +29,8 @@ import {HttpInterceptor} from "./shared/interceptor/http.interceptor";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UserAddFormComponent } from './shared/components/user-add-form/user-add-form.component';
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {DatePipe} from "@angular/common";
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: HttpInterceptor,
@@ -55,22 +57,24 @@ const INTERCEPTOR_PROVIDER: Provider = {
     UserlistDialogComponent,
     UserAddFormComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AngularSvgIconModule.forRoot(),
-    ReactiveFormsModule,
-    FormsModule,
-    NgSelectModule,
-    MatIconModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatCheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AngularSvgIconModule.forRoot(),
+        ReactiveFormsModule,
+        FormsModule,
+        NgSelectModule,
+        MatIconModule,
+        MatDialogModule,
+        MatExpansionModule,
+        MatCheckboxModule,
+        Ng2SmartTableModule
+    ],
   providers: [
-    INTERCEPTOR_PROVIDER
+    INTERCEPTOR_PROVIDER,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

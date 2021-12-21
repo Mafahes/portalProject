@@ -1,14 +1,112 @@
-<div class="container-fluid">
+<div class="container-fluid main-container">
   <div class="row">
     <div class="col-12">
       <div class="container-fluid">
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-2">
-            fgh
+          <div class="d-flex flex-column folderList">
+            <input placeholder="Поиск" class="gov-input gov-input-search"/>
+            <div class="w-100">
+              <div (click)="hidden[0] = !hidden[0]" class="d-flex flex-row mat-header">
+                <svg-icon class="hover-pointer" [src]="!hidden[0] ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon class="hover-pointer" src="assets/icons/reports/folder.svg" [svgStyle]="{ 'width.px':33, 'heigth.px':24 }"></svg-icon>
+                <span>Счета</span>
+              </div>
+              <mat-expansion-panel [expanded]="hidden[0]">
+                <div class="d-flex flex-column fileList">
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span (click)="onDocSelect(1)">Отчет №1 «Отчет по счетам»</span>
+                  </div>
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №2 «Информация о приеме счетов»‎</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </div>
+            <div class="w-100">
+              <div (click)="hidden[1] = !hidden[1]" class="d-flex flex-row mat-header">
+                <svg-icon class="hover-pointer" [src]="!hidden[1] ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon class="hover-pointer" src="assets/icons/reports/folder.svg" [svgStyle]="{ 'width.px':33, 'heigth.px':24 }"></svg-icon>
+                <span>Застрахованные лица</span>
+              </div>
+              <mat-expansion-panel [expanded]="hidden[1]">
+                <div class="d-flex flex-column fileList">
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №3 «Численность прикрепившихся застрахованных лиц»‎</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </div>
+            <div class="w-100">
+              <div (click)="hidden[2] = !hidden[2]" class="d-flex flex-row mat-header">
+                <svg-icon class="hover-pointer" [src]="!hidden[2] ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon class="hover-pointer" src="assets/icons/reports/folder.svg" [svgStyle]="{ 'width.px':33, 'heigth.px':24 }"></svg-icon>
+                <span>Акты</span>
+              </div>
+              <mat-expansion-panel [expanded]="hidden[2]">
+                <div class="d-flex flex-column fileList">
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №4 «Акт сверки примененных штрафных санкций»</span>
+                  </div>
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №5 «Акт сверки стоимостных показателей»</span>
+                  </div>
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №6 «Акт сверки стоимостных показателей между информационными службами ТФОМС и СМО»</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </div>
+            <div class="w-100">
+              <div (click)="hidden[2] = !hidden[2]" class="d-flex flex-row mat-header">
+                <svg-icon class="hover-pointer" [src]="!hidden[2] ? 'assets/icons/structure/arrow-right.svg' : 'assets/icons/structure/arrow-bottom.svg'" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                <svg-icon class="hover-pointer" src="assets/icons/reports/folder.svg" [svgStyle]="{ 'width.px':33, 'heigth.px':24 }"></svg-icon>
+                <span>Плановые показатели</span>
+              </div>
+              <mat-expansion-panel [expanded]="hidden[2]">
+                <div class="d-flex flex-column fileList">
+                  <div class="d-flex flex-row">
+                    <svg-icon class="hover-pointer" src="assets/icons/reports/file.svg" [svgStyle]="{ 'width.px':32, 'heigth.px':32 }"></svg-icon>
+                    <span>Отчет №7 «Информация о плановых показателях»</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </div>
           </div>
-          <div class="col-8">
-            fgh
+          <div class="col-xl-8">
+            <div class="white-container w-100 h-100 d-flex flex-column">
+              <div *ngIf="selectedIndex !== -1" class="d-flex flex-row row-panel">
+                <div class="date__search d-flex flex-row">
+                  <svg-icon class="hover-pointer" src="assets/icons/structure/arrow-left.svg" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                  <span>09.2021-11.2021</span>
+                  <svg-icon class="hover-pointer" src="assets/icons/structure/arrow-right.svg" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
+                </div>
+                <div (click)="switchSort(0)" class="sort-item hover-pointer d-flex flex-row">
+                  <span>Вид МО</span>
+                  <svg-icon class="hover-pointer" src="assets/icons/structure/sort-icon.svg" [svgStyle]="{ 'width.px':7, 'heigth.px':17 }"></svg-icon>
+                </div>
+                <div (click)="switchSort(1)" class="sort-item hover-pointer d-flex flex-row">
+                  <span>Наименование</span>
+                  <svg-icon class="hover-pointer" src="assets/icons/structure/sort-icon.svg" [svgStyle]="{ 'width.px':7, 'heigth.px':17 }"></svg-icon>
+                </div>
+                <div (click)="switchSort(2)" class="sort-item hover-pointer d-flex flex-row">
+                  <span>Статус</span>
+                  <svg-icon class="hover-pointer" src="assets/icons/structure/sort-icon.svg" [svgStyle]="{ 'width.px':7, 'heigth.px':17 }"></svg-icon>
+                </div>
+              </div>
+              <div class="ng-t">
+                <ng2-smart-table *ngIf="selectedIndex !== -1" [settings]="tableConfig" [source]="fileType1"></ng2-smart-table>
+              </div>
+              <div *ngIf="selectedIndex !== -1" class="d-flex button-container flex-row justify-content-end align-items-end">
+                <button class="gov-button" (click)="saveExcel()">Скачать</button>
+              </div>
+            </div>
           </div>
           <div class="col-1"></div>
         </div>

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import { API_LINK } from '../config';
 import { ResourceData } from '../interfaces/resource';
 import { User } from '../interfaces/user';
 import { File } from '../interfaces/file';
 import {Scheme, StructureObject} from '../interfaces/structure';
 import { map } from 'rxjs/operators';
+import {Mo, MoV2, Org} from "../interfaces/mo";
+import * as FileSaver from 'file-saver';
+import * as XLSX from 'xlsx';
 
 @Injectable({
   providedIn: 'root',
@@ -66,5 +69,116 @@ export class ApiService {
   }
   deleteOrgScheme(id: any): Observable<any> {
     return this.http.delete<any>(`${API_LINK}api/organizations?id=${id}`);
+  }
+  getTypeMO(): Observable<Mo[]> {
+    return of([
+      {id: 1, name: 'ЦРБ и УБ'},
+      {id: 2, name: 'Махачкалинские МО'},
+      {id: 3, name: 'ЦГБ'}
+    ])
+  }
+  getTypeMOV2(): Observable<MoV2[]> {
+    return of([
+      {
+        "nummer": 1,
+        "date": "2021-08-03T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"Парус\", г. Махачкала",
+        "status": "сдан"
+      },
+      {
+        "nummer": 2,
+        "date": "2021-08-01T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"Дентал Люкс\", с. Маджалис",
+        "status": "сдан"
+      },
+      {
+        "nummer": 3,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"МЦ Здоровье\", г. Махачкала",
+        "status": "сдан"
+      },
+      {
+        "nummer": 4,
+        "date": "2021-08-06T00:00:00",
+        "typeMO": "ЦРБ и УБ",
+        "nameMO": "Ахвахская ЦРБ",
+        "status": "сдан"
+      },
+      {
+        "nummer": 5,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"МЦ Здоровье\", г. Махачкала",
+        "status": "сдан"
+      },
+      {
+        "nummer": 6,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "ЦРБ и УБ",
+        "nameMO": "Бабаюртовская ЦРБ",
+        "status": "сдан"
+      },
+      {
+        "nummer": 7,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "ЦРБ и УБ",
+        "nameMO": "Бабаюртовская ЦРБ",
+        "status": "сдан"
+      },
+      {
+        "nummer": 8,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "ЦРБ и УБ",
+        "nameMO": "Бабаюртовская ЦРБ",
+        "status": "сдан"
+      },
+      {
+        "nummer": 9,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"Галактика\", г. Махачкала",
+        "status": "сдан"
+      },
+      {
+        "nummer": 10,
+        "date": "2021-08-05T00:00:00",
+        "typeMO": "Частные МО",
+        "nameMO": "\"Патогистологический центр\", г. Махачкала",
+        "status": "сдан"
+      }
+    ])
+  }
+  getOrg(): Observable<Org[]> {
+    return of([
+      {
+        id: 672,
+        mcod: '051301',
+        glpu: '051301',
+        idump: 1,
+        urop: 1,
+        krai: '013',
+        name: 'Бабаюртовская ЦРБ',
+        m_namef: 'ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ УЧРЕЖДЕНИЕ РЕСПУБЛИКИ ДАГЕСТАН БАБАЮРТОВКАЯ ЦЕНТРАЛЬНАЯ РАЙОННАЯ БОЛЬНИЦА',
+        m_ogrn: '1020501443863',
+        m_adres: '368060, РД, Бабаюртовский р-он, с. Бабаюрт, ул. И.Казака, 13',
+        fam_gv: "ДУГУЖЕВ",
+        grup: 1
+      }
+    ]);
+  }
+  createExcel(json: any[], excelFileName: string): void {
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
+
+    const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+    const myworkbook: XLSX.WorkBook = { Sheets: { 'data': myworksheet }, SheetNames: ['data'] };
+    const excelBuffer: any = XLSX.write(myworkbook, { bookType: 'xlsx', type: 'array' });
+    const data: Blob = new Blob([excelBuffer], {
+      type: EXCEL_TYPE
+    });
+    FileSaver.saveAs(data, excelFileName + EXCEL_EXTENSION);
   }
 }
