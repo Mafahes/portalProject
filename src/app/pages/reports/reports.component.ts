@@ -4,6 +4,7 @@ import {map} from "rxjs/operators";
 import {forkJoin} from "rxjs";
 import {MoV2, Org} from "../../shared/interfaces/mo";
 import {DatePipe} from "@angular/common";
+import {LocalDataSource} from "ng2-smart-table";
 
 @Component({
   selector: 'app-reports',
@@ -22,15 +23,14 @@ export class ReportsComponent implements OnInit {
     false,
     false
   ]
-  sort: boolean[] = [
-    false,
-    false,
-    false
-  ]
+  searchField = '';
+  sort: any = [-1, true];
   selectedIndex = -1;
   fileType1: MoV2[] = [];
+  source: LocalDataSource = new LocalDataSource()
   tableConfig = {
     actions: false,
+    mode: 'external',
     columns: {
       nummer: {
         title: '№',
@@ -65,28 +65,30 @@ export class ReportsComponent implements OnInit {
   ngOnInit(): void {
   }
   switchSort(index: number): void {
-    console.log(index);
-    switch (index) {
+    this.sort = [index, this.sort[0] === index ? this.sort[1] === true ? false : true : false];
+    console.log(this.sort);
+    switch (this.sort[0]) {
       case 0: {
-        this.fileType1 = this.fileType1.sort((a, b) => a.typeMO.localeCompare(b.typeMO));
-        console.log(this.fileType1[0].typeMO);
+        this.source.load(
+          this.fileType1.sort((a, b) => this.sort[1] ? a.typeMO.replace("\"", '').localeCompare(b.typeMO) : b.typeMO.replace("\"", '').localeCompare(a.typeMO)));
         break;
       }
       case 1: {
-        this.fileType1 = this.fileType1.sort((a, b) => a.nameMO.localeCompare(b.nameMO))
+        this.source.load(
+          this.fileType1.sort((a, b) => this.sort[1] ? a.nameMO.split('"').join('').localeCompare(b.nameMO) : b.nameMO.split('"').join('').replace("\"", '').localeCompare(a.nameMO.split('"').join(''))));
         break;
       }
       case 2: {
-        this.fileType1 = this.fileType1.sort((a, b) => a.nameMO.localeCompare(b.nameMO))
+        this.source.load(
+          this.fileType1.sort((a, b) => this.sort[1] ? a.status.replace("\"", '').localeCompare(b.status) : b.status.replace("\"", '').localeCompare(a.status)));
         break;
       }
     }
   }
   async onDocSelect(index: number): Promise<void> {
     this.selectedIndex = index;
-    this.fileType1 = await this.api.getTypeMOV2().pipe(
-      map(e => e.sort((a, b) => a.nameMO.localeCompare(b.nameMO)))
-    ).toPromise();
+    this.fileType1 = await this.api.getTypeMOV2().toPromise();
+    this.source.load(this.fileType1);
   }
   async saveExcel(): Promise<void> {
     this.api.createExcel(this.fileType1.map((e) => (

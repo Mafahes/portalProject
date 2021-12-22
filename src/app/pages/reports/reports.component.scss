@@ -2,7 +2,25 @@
   min-height: 80vh;
   padding: 55px 0;
 }
+.active {
+  border: 1px solid #0050B2 !important;
+}
+::ng-deep {
+  .active {
+    .direction-up svg {
+      path:first-child {
+        fill: #0050B2;
+      }
+    }
+    .direction-down svg {
+      path:last-child {
+        fill: #0050B2;
+      }
+    }
+  }
+}
 .white-container {
+  min-height: 600px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   padding: 20px;
@@ -93,6 +111,7 @@ mat-expansion-panel {
   margin: 19px 0px;
   gap: 19px;
   .flex-row {
+    padding-left: 25px;
     gap: 13px;
     span:hover {
       cursor: pointer;

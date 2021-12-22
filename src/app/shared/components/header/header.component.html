@@ -4,14 +4,23 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-10 d-flex flex-column label__container">
+          <div class="col-7 d-flex flex-column label__container">
             <div class="d-flex hover-pointer w-fit flex-column" routerLink="/">
               <span class="label">Портал участника системы ОМС</span>
               <span class="label">Территориального фонда обязательного медицинского страхования</span>
               <span class="label">Республики Дагестан</span>
             </div>
           </div>
-          <div class="col-1"></div>
+          <div *ngIf="router.url === '/'" class="col-2 d-flex flex-column justify-content-end label__container">
+            <div class="d-flex align-items-center justify-content-between controls flex-row">
+              <span routerLink="/profile">Петров И.И.</span>
+              <div class="d-flex align-items-center flex-row">
+                <mat-icon>close</mat-icon>
+                <span (click)="logOut()">Выход</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-2"></div>
         </div>
       </div>
     </div>

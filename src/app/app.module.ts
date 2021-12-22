@@ -31,6 +31,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { UserAddFormComponent } from './shared/components/user-add-form/user-add-form.component';
 import {Ng2SmartTableModule} from "ng2-smart-table";
 import {DatePipe} from "@angular/common";
+import { ReportSearchPipe } from './pages/reports/report-search.pipe';
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
   useClass: HttpInterceptor,
@@ -55,7 +56,8 @@ const INTERCEPTOR_PROVIDER: Provider = {
     LoginDialogComponent,
     PermissionDialogComponent,
     UserlistDialogComponent,
-    UserAddFormComponent
+    UserAddFormComponent,
+    ReportSearchPipe
   ],
     imports: [
         BrowserModule,

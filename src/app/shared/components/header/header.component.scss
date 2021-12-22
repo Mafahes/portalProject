@@ -7,6 +7,25 @@
 .labels__bg {
   background-color: white;
 }
+.labels__bg {
+  .controls {
+    .d-flex {
+      gap: 12px;
+    }
+    mat-icon {
+      color: #1C69A0;
+    }
+    span:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    span {
+      font-family: GolosBold, sans-serif;
+      font-size: 18px;
+      color: #1C69A0;
+    }
+  }
+}
 .label {
   font-size: 24px;
   font-family: GolosBold, sans-serif;
