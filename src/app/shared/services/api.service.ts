@@ -6,7 +6,7 @@ import { ResourceData } from '../interfaces/resource';
 import { User } from '../interfaces/user';
 import { File } from '../interfaces/file';
 import {Scheme, StructureObject} from '../interfaces/structure';
-import { map } from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 import {Mo, MoV2, Org} from "../interfaces/mo";
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
@@ -149,7 +149,9 @@ export class ApiService {
         "nameMO": "\"Патогистологический центр\", г. Махачкала",
         "status": "сдан"
       }
-    ])
+    ]).pipe(
+      delay(700)
+    )
   }
   getOrg(): Observable<Org[]> {
     return of([
@@ -167,7 +169,9 @@ export class ApiService {
         fam_gv: "ДУГУЖЕВ",
         grup: 1
       }
-    ]);
+    ]).pipe(
+      delay(700)
+    );
   }
   createExcel(json: any[], excelFileName: string): void {
     const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';

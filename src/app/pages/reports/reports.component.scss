@@ -4,6 +4,9 @@
 }
 .active {
   border: 1px solid #0050B2 !important;
+  span {
+    color: #0050B2 !important;
+  }
 }
 ::ng-deep {
   .active {

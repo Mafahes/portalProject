@@ -86,8 +86,11 @@
             </div>
           </div>
           <div class="col-xl-8 col-lg-7 col-md-6">
-            <div class="white-container w-100 d-flex flex-column">
-              <div *ngIf="selectedIndex !== -1" class="d-flex flex-wrap flex-row row-panel">
+            <div [class.justify-content-center]="selectedIndex !== -1 && fileType1.length === 0" class="white-container w-100 d-flex flex-column">
+              <div *ngIf="selectedIndex !== -1 && fileType1.length === 0" class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+                <span class="spinner"></span>
+              </div>
+              <div *ngIf="selectedIndex !== -1 && fileType1.length > 0" class="d-flex flex-wrap flex-row row-panel">
                 <div class="date__search d-flex flex-row">
                   <svg-icon class="hover-pointer" src="assets/icons/structure/arrow-left.svg" [svgStyle]="{ 'width.px':8, 'heigth.px':13 }"></svg-icon>
                   <span>09.2021-11.2021</span>
@@ -107,9 +110,9 @@
                 </div>
               </div>
               <div class="ng-t">
-                <ng2-smart-table *ngIf="selectedIndex !== -1" [settings]="tableConfig" [source]="source"></ng2-smart-table>
+                <ng2-smart-table *ngIf="selectedIndex !== -1 && fileType1.length > 0" [settings]="tableConfig" [source]="source"></ng2-smart-table>
               </div>
-              <div *ngIf="selectedIndex !== -1" class="d-flex button-container flex-row justify-content-end align-items-end">
+              <div *ngIf="selectedIndex !== -1 && fileType1.length > 0" class="d-flex button-container flex-row justify-content-end align-items-end">
                 <button class="gov-button" (click)="saveExcel()">Скачать</button>
               </div>
             </div>

@@ -5,6 +5,7 @@ import {forkJoin} from "rxjs";
 import {MoV2, Org} from "../../shared/interfaces/mo";
 import {DatePipe} from "@angular/common";
 import {LocalDataSource} from "ng2-smart-table";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-reports',
@@ -15,7 +16,8 @@ export class ReportsComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private app: AppComponent
   ) { }
   hidden: boolean[] = [
     true,
